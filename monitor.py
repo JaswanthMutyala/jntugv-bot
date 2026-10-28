@@ -5,8 +5,8 @@ URLS = {
     "JNTU-GV Notices": "https://jntugv.edu.in/notice",
     "Exams Portal":    "https://exams.jntugv.edu.in/",
 }
-TG_TOKEN   = os.environ["9197968959:AAHI50rbD_8gFsOAbyGOoqQRoKwn8hsIOmA"]
-TG_CHAT_ID = os.environ["7130477842"]
+TG_TOKEN   = os.environ["TG_TOKEN"]
+TG_CHAT_ID = os.environ["TG_CHAT_ID"]
 CACHE_FILE = "cache.json"
 
 def get_hash(url):
