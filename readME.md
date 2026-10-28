@@ -1,0 +1,1 @@
+This is a telegram bot script for updating the notifications from JNTU-GV.

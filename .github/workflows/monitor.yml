@@ -1,0 +1,32 @@
+name: JNTU-GV Monitor
+
+on:
+  schedule:
+    - cron: '0 * * * *'    # every hour (UTC)
+  workflow_dispatch:        # manual "Run workflow" button
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: pip install requests beautifulsoup4
+
+      - name: Run monitor
+        run: python monitor.py
+        env:
+          TG_TOKEN: ${{ secrets.TG_TOKEN }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+
+      - name: Commit cache back
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add cache.json
+          git diff --staged --quiet || git commit -m "Update cache"
+          git push   
