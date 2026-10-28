@@ -2,7 +2,7 @@ name: JNTU-GV Monitor
 
 on:
   schedule:
-    - cron: '0 * * * *'    # every hour (UTC)
+    - cron: '*/5 * * * *'    # every hour (UTC)
   workflow_dispatch:        # manual "Run workflow" button
 
 jobs:
